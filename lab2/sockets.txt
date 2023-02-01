@@ -1,0 +1,63 @@
+1. Socket(), Connect()
+2.You would need to call sendto and recvfrom instead of recv and send
+3.sendto
+4.It using the same port each time
+5.It uses a different port for each socket but the same port for each socket.
+6. One socket for all clients
+7. Three times
+8. Just the 1 
+9. 3 
+10. UDP only takes one packet at a time
+11. After listen is has a socket willing to connect and accept accepts an actual connection.
+12. Connect with UDP sets to where you'll send and receive data grams where in TCP it set up a connection to another socket.
+13. It needs to establish a connection before it sends any information back and forth.
+14. For the same socket messages are from the same port value
+15. The port value changes when using a different socekt.
+16. It is using one for each client
+17.Client is writing 3 times
+18. It received 1 message
+19. It called recv only 2 times.
+20.Since TCP is set up as a stream it can receive multiple messages at a time unlike UDP which has to receive one data packet at a time
+21.0ef39a3f241cdd6552ad131e01afa9171b3dab8d
+22../client -4 www-notls.imaal.byu.edu 80 < http-bestill.txt > bestill.txt
+23.HTTP/1.1 200 OK
+Date: Fri, 25 Feb 2022 04:01:22 GMT
+Server: Apache/2.4.51 (Debian)
+Upgrade: h2c
+Connection: Upgrade, close
+Content-length: 809
+Vary: Accept-Encoding
+Content-Type: text/plain
+
+
+1. Be still, my soul: The Lord is on thy side;
+With patience bear thy cross of grief or pain.
+Leave to thy God to order and provide;
+In ev'ry change he faithful will remain.
+Be still, my soul: Thy best, thy heav'nly Friend
+Thru thorny ways leads to a joyful end.
+
+2. Be still, my soul: Thy God doth undertake
+To guide the future as he has the past.
+Thy hope, thy confidence let nothing shake;
+All now mysterious shall be bright at last.
+Be still, my soul: The waves and winds still know
+His voice who ruled them while he dwelt below.
+
+3. Be still, my soul: The hour is hast'ning on
+When we shall be forever with the Lord,
+When disappointment, grief, and fear are gone,
+Sorrow forgot, love's purest joys restored.
+Be still, my soul: When change and tears are past,
+All safe and blessed we shall meet at last.
+
+24../client -4 www-notls.imaal.byu.edu 80 < http-socket.txt | ./strip_http.py > socket.jpg
+
+25.c03ce59f9d77e2a3cf001d9dfcb66675ac1a5a81  socket.jpg
+
+26.the receive call waits for a
+    message to arrive, unless the socket is nonblocking (see fcntl(2)) in
+     which case the value -1 is returned and the external variable errno set
+     to EAGAIN.
+27.It returns what you have and doesnt block.
+28.It throws excess bytes.
